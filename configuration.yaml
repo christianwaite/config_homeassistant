@@ -61,7 +61,7 @@ zwave:
 
 mqtt:
   discovery: true
-  broker: 192.168.2.3:1883
+  broker: !secret ip_mosquitto
   birth_message:
     topic: 'hass/status'
     payload: 'online'
@@ -80,12 +80,6 @@ media_player:
 
   - platform: braviatv
     host: !secret ip_livingroomtv
-    
-  - platform: androidtv
-    name: Android TV
-    device_class: androidtv
-    host: 192.168.2.46
-    adb_server_ip: 192.168.2.3
 
 weather:
   - platform: darksky
