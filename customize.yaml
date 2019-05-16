@@ -1,0 +1,22 @@
+device_tracker.christian:
+  friendly_name: Christian
+sensor.memory_use_percent:
+  friendly_name: Memory
+sensor.disk_use_percent:
+  friendly_name: Disk
+sensor.swap_use_percent:
+  friendly_name: Swap
+sensor.processor_use:
+  friendly_name: Processor
+input_datetime.bedroom_alarm_christian:
+  friendly_name: Time
+input_boolean.christian_alarm_enable:
+  friendly_name: Enable
+binary_sensor.christian_alarm_workday:
+  friendly_name: Workday
+input_datetime.bedroom_alarm_jenny:
+  friendly_name: Time
+input_boolean.jenny_alarm_enable:
+  friendly_name: Enable
+binary_sensor.jenny_alarm_workday:
+  friendly_name: Workday

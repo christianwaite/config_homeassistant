@@ -1,0 +1,21 @@
+"light.*_switch_*":
+  icon: mdi:ceiling-light
+"light.*_lamp*":
+  icon: mdi:lamp
+"sensor.*_switch_energy":
+  icon: mdi:battery-charging
+"sensor.*_switch_power*":
+  icon: mdi:flash
+"binary_sensor.*_sensor_motion":
+  icon: mdi:run-fast
+"sensor.*_sensor_luminance":
+  icon: mdi:brightness-5
+"sensor.*_sensor_temperature":
+  icon: mdi:thermometer
+"input_boolean.*automation*":
+  icon: mdi:blur-linear
+"sensor.mode*":
+  icon: mdi:blur
+"input_boolean.*":
+  templates:
+    icon_color: if (state === 'on') return '#FDD835';

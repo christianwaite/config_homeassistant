@@ -1,0 +1,157 @@
+#################################################################
+## LIVINGROOM
+#################################################################
+  - name: Livingroom Full
+    entities:
+      light.livingroom_switch_ceiling:
+        state: on
+        brightness: 254
+      light.diningroom_switch_ceiling:
+        state: on
+        brightness: 254
+      light.livingroom_futon:
+        state: on
+        brightness: 254
+      light.livingroom_floor:
+        state: on
+        brightness: 254
+      light.livingroom_floor_mini:
+        state: on
+        brightness: 254
+      light.livingroom_tripod:
+        state: on
+        brightness: 254
+      light.livingroom_orange:
+        state: on
+        brightness: 254
+
+  - name: Livingroom Comfortable
+    entities:
+      light.diningroom_switch_ceiling:
+        state: on
+        brightness: 65
+      light.livingroom_switch_ceiling:
+        state: on
+        brightness: 150
+      light.livingroom_futon:
+        state: on
+        brightness: 190
+      light.livingroom_floor:
+        state: on
+        brightness: 190
+      light.livingroom_floor_mini:
+        state: on
+        brightness: 190
+      light.livingroom_tripod:
+        state: on
+        brightness: 190
+      light.livingroom_orange:
+        state: on
+        brightness: 190
+        
+  - name: Livingroom TV
+    entities:
+      light.diningroom_switch_ceiling:
+        state: on
+        brightness: 45
+      light.livingroom_switch_ceiling:
+        state: on
+        brightness: 70
+      light.livingroom_futon:
+        state: on
+        brightness: 90
+      light.livingroom_floor:
+        state: on
+        brightness: 100
+      light.livingroom_floor_mini:
+        state: on
+        brightness: 80
+      light.livingroom_tripod:
+        state: on
+        brightness: 80
+      light.livingroom_orange:
+        state: on
+        brightness: 70
+
+  - name: Livingroom Movie
+    entities:
+      light.diningroom_switch_ceiling:
+        state: off
+      light.livingroom_switch_ceiling:
+        state: on
+        brightness: 30
+      light.livingroom_futon:
+        state: off
+      light.livingroom_floor:
+        state: on
+        brightness: 50
+      light.livingroom_floor_mini:
+        state: on
+        brightness: 40
+      light.livingroom_tripod:
+        state: on
+        brightness: 40
+      light.livingroom_orange:
+        state: on
+        brightness: 35
+        
+#################################################################
+## BEDROOM
+#################################################################
+  - name: Bedroom Lamps
+    entities:
+      light.bedroom_christian:
+        state: on
+        brightness: 128
+      light.bedroom_wardrobe:
+        state: on
+        brightness: 128
+      light.bedroom_jenny:
+        state: on
+        brightness: 128
+
+  - name: Bedroom Wakeup
+    entities:
+      light.bedroom_wardrobe:
+        state: on
+        transition: 300
+        brightness: 125
+      light.bedroom_christian:
+        state: on
+        transition: 300
+        brightness: 125
+      light.bedroom_jenny:
+        state: on
+        transition: 300
+        brightness: 125
+        
+#################################################################
+## LUKE
+#################################################################
+  - name: Luke Bedtime
+    entities:
+      light.luke_switch_ceiling:
+        state: on
+        brightness: 128
+      light.luke_sideboard:
+        state: on
+        brightness: 200
+      light.luke_bedside:
+        state: on
+        brightness: 85
+      switch.luke_lamp_3:
+        state: on
+
+  - name: Luke Wakeup
+    entities:
+      light.luke_switch_ceiling:
+        state: on
+        brightness: 200
+      light.luke_sideboard:
+        state: on
+        brightness: 200
+      light.luke_bedside:
+        state: on
+        brightness: 200
+      switch.luke_lamp_3:
+        state: on

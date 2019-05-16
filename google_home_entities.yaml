@@ -1,0 +1,106 @@
+#############################################
+## BEDROOM
+#############################################
+light.bedroom_switch_ceiling:
+  name: Ceiling
+  aliases:
+    - BEDROOM_LIGHTS
+  room: Bedroom
+  expose: true
+
+light.bedroom_wardrobe:
+  name: Wardrobe
+  room: Bedroom
+  expose: true
+
+light.bedroom_jenny:
+  name: Jenny
+  room: Bedroom
+  expose: true
+
+light.bedroom_christian:
+  name: Christian
+  room: Bedroom
+  expose: true
+
+#############################################
+## LIVINGROOM
+#############################################
+light.livingroom_switch_ceiling:
+  name: Livingroom
+  room: Living Room
+  expose: true
+
+light.diningroom_switch_ceiling:
+  name: Diningroom
+  room: Living Room
+  expose: true
+
+light.livingroom_floor:
+  name: Floor
+  room: Living Room
+  expose: true
+  
+light.livingroom_floor_mini:
+  name: Floor Mini
+  room: Living Room
+  expose: true
+
+light.livingroom_futon:
+  name: Futon
+  room: Living Room
+  expose: true
+
+light.livingroom_orange:
+  name: Orange
+  room: Living Room
+  expose: true
+
+light.livingroom_tripod:
+  name: Tripod
+  room: Living Room
+  expose: true
+
+#############################################
+## Erin
+#############################################
+light.erin_switch_ceiling:
+  name: Ceiling
+  room: Erin
+  expose: true
+
+light.erin_lamp_level:
+  name: Lamp
+  room: Erin
+  expose: true
+
+#############################################
+## Luke
+#############################################
+light.luke_switch_ceiling:
+  name: Ceiling
+  room: Luke
+  expose: true
+
+light.luke_sideboard:
+  name: Vase
+  room: Luke
+  expose: true
+
+light.luke_bedside:
+  name: Petal
+  room: Luke
+  expose: true
+
+switch.luke_lamp_3:
+  name: Dino Balls
+  room: Luke
+  expose: true
+
+#############################################
+## Landing
+#############################################
+light.landing_switch_ceiling:
+  name: Ceiling
+  room: Landing
+  expose: true

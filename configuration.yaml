@@ -1,0 +1,225 @@
+homeassistant:
+#################################################################
+## BASE SETUP
+#################################################################
+  name: Home
+  unit_system: metric
+  time_zone: Europe/London
+  latitude: !secret home_lat
+  longitude: !secret home_lon
+  elevation: !secret home_ele
+
+  customize: !include customize.yaml
+  customize_glob: !include customize_glob.yaml
+
+frontend:
+  javascript_version: latest
+  extra_html_url:
+    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui.html
+  extra_html_url_es5:
+    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui-es5.html
+http:
+discovery:
+updater:
+ios:
+config:
+map:
+sun:
+system_health:
+history:
+logbook:
+recorder: !include recorder.yaml
+panel_custom:
+  - name: zgraph
+    sidebar_title: ZGraph
+    sidebar_icon: mdi:access-point-network
+    url_path: zwave
+    
+#################################################################
+## PLATFORMS
+#################################################################
+
+zwave:
+  usb_path: /dev/ttyACM0
+  #device_config: !include zwave_device_config.yaml
+  device_config_glob:
+    light.*switch_level:
+      ignored: true
+    sensor.*source*:
+      ignored: true
+    sensor.*system*:
+      ignored: true
+    sensor.*alarm*:
+      ignored: true
+    sensor.*seismic*:
+      ignored: true
+    sensor.*general*:
+      ignored: true
+    sensor.*switch_luminance:
+      ignored: true
+    
+
+mqtt:
+  discovery: true
+  broker: 192.168.2.3:1883
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+  
+nest:
+  client_id: !secret nest_id
+  client_secret: !secret nest_secret
+
+media_player:
+  - platform: plex
+    entity_namespace: 'plex'
+    include_non_clients: false
+
+  - platform: braviatv
+    host: !secret ip_livingroomtv
+    
+  - platform: androidtv
+    name: Android TV
+    device_class: androidtv
+    host: 192.168.2.46
+    adb_server_ip: 192.168.2.3
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
+    units: 'uk'
+    latitude: !secret home_lat
+    longitude: !secret home_lon
+
+google_assistant:
+  project_id: !secret google_project_id
+  api_key: !secret google_api
+  expose_by_default: false
+  entity_config: !include google_home_entities.yaml
+
+#tts:
+#  - platform: google
+
+#################################################################
+## COMPONENTS -->
+#################################################################
+scene: !include scenes.yaml
+## automation: !include automation.yaml
+#################################################################
+## SENSORS
+#################################################################
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_use_percent
+      - type: swap_use_percent
+      - type: processor_use
+
+  - platform: mqtt
+    name: 'Mode Livingroom Occupancy'
+    state_topic: "home/livingroom/mode"
+    
+  - platform: mqtt
+    name: 'Mode Livingroom Scene'
+    state_topic: "home/livingroom/scene"
+
+binary_sensor:
+  - platform: workday
+    name: ”Christian Alarm Workday”
+    country: UK
+
+  - platform: workday
+    name: ”Jenny Alarm Workday”
+    country: UK
+    workdays: [mon,tue,wed]
+    
+#################################################################
+## INPUTS
+#################################################################
+input_boolean:
+#  luke_automation_bedtime_motion:
+#    name: Luke Bedtime Motion
+
+  livingroom_automation_media:
+    name: Livingroom Media
+
+  livingroom_automation_motion:
+    name: Livingroom Motion
+
+  christian_alarm_radio:
+    name: Radio
+    icon: mdi:radio
+    
+  christian_alarm_enable:
+    name: Enable
+  
+  jenny_alarm_radio:
+    name: Radio
+    icon: mdi:radio
+    
+  jenny_alarm_enable:
+    name: Enable
+    
+input_datetime:
+  bedroom_alarm_jenny:
+    name: Time
+    has_date: false
+    has_time: true
+    
+  bedroom_alarm_christian:
+    name: Time
+    has_date: false
+    has_time: true
+
+#################################################################
+## GROUPS
+#################################################################
+group:
+  livingroom_lights:
+    name: Livingroom Lights
+    entities:
+      - light.livingroom_floor
+      - light.livingroom_futon
+      - light.livingroom_switch_ceiling
+      - light.livingroom_orange
+      - light.livingroom_tripod
+      - light.livingroom_floor_mini
+      - light.diningroom_switch_ceiling
+
+  bedroom_lights:
+    name: Bedroom Lights
+    entities:
+      - light.bedroom_switch_ceiling
+      - light.bedroom_jenny
+      - light.bedroom_christian
+      - light.bedroom_wardrobe
+
+  bedroom_lamps:
+    name: Bedroom Lamps
+    entities:
+      - light.bedroom_jenny
+      - light.bedroom_christian
+      - light.bedroom_wardrobe
+      
+  luke_lights:
+    name: Luke Lights
+    entities:
+      - light.luke_switch_ceiling
+      - light.luke_sideboard
+      - light.luke_bedside
+      - switch.luke_lamp_3
+      
+  erin_lights:
+    name: Erin Lights
+    entities:
+      - light.erin_switch_ceiling
+      - light.erin_lamp_level

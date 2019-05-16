@@ -1,0 +1,22 @@
+db_url: !secret mariadb_url
+include:
+  entities:
+    - sensor.family_room_thermostat_target
+    - sensor.family_room_thermostat_temperature
+    - sensor.family_room_thermostat_operatiom_mode
+    - binary_sensor.livingroom_sensor_motion
+    - sensor.livingroom_sensor_temperature
+    - sensor.livingroom_sensor_luminance
+    - sensor.livingroom_sensor_burgular
+    - binary_sensor.landing_sensor_motion
+    - sensor.landing_sensor_temperature
+    - sensor.landing_sensor_luminance
+    - sensor.landing_sensor_burgular
+    - binary_sensor.luke_sensor_motion
+    - sensor.luke_sensor_temperature
+    - sensor.luke_sensor_luminance
+    - sensor.luke_sensor_burgular
+    - sensor.disk_use_percent
+    - sensor.memory_use_percent
+    - sensor.processor_use
+    - sensor.swap_use_percent
